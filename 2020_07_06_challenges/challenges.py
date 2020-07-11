@@ -34,7 +34,7 @@ def is_mersenne(num: int) -> bool:
 class Car(object):
     """The `Car` class you need to write for the intermediate challenge."""
 
-    def __init__(self, weight, wheels, passengers, model_number, manufacturer):
+    def __init__(self, weight, wheels, passengers, model_number, manufacturer) -> None:
         """The stub for the constructor. Introduce type-hinting as part of the challenge."""
         pass
 
@@ -49,7 +49,7 @@ class Car(object):
 class TreeNode(object):
     """A stub class for nodes of a binary tree."""
 
-    def __init__(self, data: typing.Any = None, left: 'TreeNode' = None, right: 'TreeNode' = None):
+    def __init__(self, data: typing.Any = None, left: 'TreeNode' = None, right: 'TreeNode' = None) -> None:
         """The stub for the constructor."""
         pass
 
