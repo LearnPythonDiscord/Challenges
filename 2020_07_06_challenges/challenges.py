@@ -38,7 +38,7 @@ class Car(object):
         """The stub for the constructor. Introduce type-hinting as part of the challenge."""
         pass
 
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
         """This method needs to be overriden as part of the challenge."""
         pass
 
@@ -58,7 +58,7 @@ class TreeNode(object):
         pass
 
 
-def check_tree(x: TreeNode, y: TreeNode) -> bool:
+def check_trees(x: TreeNode, y: TreeNode) -> bool:
     """The `check_tree` method for the proficient challenges."""
     pass
 
