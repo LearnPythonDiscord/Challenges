@@ -74,4 +74,10 @@ class T300ProficientTests(unittest.TestCase):
 
 class T400AdvancedTests(unittest.TestCase):
     """Tests for the advanced challenges."""
-    pass
+    def test_401_correct_answer(self):
+        """
+        Testing your code with the numbers : 50 , 200, 123
+        """
+        self.assertEqual(challenges.solution(50),3657)
+        self.assertEqual(challenges.solution(200),487067745)
+        self.assertEqual(challenges.solution(123),2757825)
