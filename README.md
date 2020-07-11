@@ -1,4 +1,4 @@
-## Challenges
+# Challenges
 
 Welcome to the **Learn Python!** repository for weekly challenges!
 
