@@ -63,11 +63,6 @@ def check_trees(x: TreeNode, y: TreeNode) -> bool:
     pass
 
 
-def swap_nodes(tree: TreeNode) -> TreeNode:
-    """The `swap_nodes` method can be used as a helper for `invert_tree`."""
-    pass
-
-
 def invert_tree(tree: TreeNode) -> TreeNode:
     """The `invert_tree` method for the proficient challenges."""
     pass
