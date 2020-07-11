@@ -188,7 +188,7 @@ class ChallengeTestResult(unittest.TestResult):
         """Prepare the test phase of an individual test method."""
         super().startTest(test)
 
-        if not isinstance(test, self.current_testclass.type):
+        if type(test) != self.current_testclass.type:
             self.switch_testclass(test)
 
         self.failure_output = []
