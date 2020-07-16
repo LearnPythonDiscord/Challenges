@@ -4,7 +4,7 @@ from unittest import mock
 import challenges
 class T100BeginnerTests(unittest.TestCase):
     """Tests for beginner challenge"""
-    def setup(self):
+    def setUp(self):
         self.store1 = challenges.Store(222.2,33333.3,3,True,['item1','item2','item3'])
     def test_101_variables(self):
         '''Check init is correct'''
@@ -14,7 +14,7 @@ class T100BeginnerTests(unittest.TestCase):
 
 class T200IntermediateTests(unittest.TestCase):
     '''Test for intermediate challenges'''
-    def setup(self):
+    def setUp(self):
         self.store1 = challenges.Store(222.2,33333.3,3,True,['item1','item2','item3'])
         self.store2 = challenges.Store(232323.3232,32323.3,5,False,['choco','beer','crisps'])
     
@@ -35,7 +35,7 @@ class T200IntermediateTests(unittest.TestCase):
     
 class T300AdvancedTests(unittest.TestCase):
     '''Check for advanced tests'''
-    def setup(self):
+    def setUp(self):
         self.store1 = challenges.Store(222.2,33333.3,3,True,['item1','item2','item3'])
         self.store1.update_monthly(900000.0)
         self.store1.update_monthly(1.0)
