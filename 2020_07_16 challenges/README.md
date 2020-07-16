@@ -8,10 +8,10 @@ So that you can later use the prebuilt test suite to make sure all the implement
 
 ### Beginner
 1. Create a class called Store with the following properties;
-- > Shop size (float)
-- > Sales for month (float)
-- > Different number of item categories (int)
-- > Off license (boolean)
+- Shop size (float)
+- Sales for month (float)
+- Different number of item categories (int)
+- Off license (boolean)
 2. Introduce type hinting
 
 ### Intermediate
@@ -23,6 +23,6 @@ Store size: <store size> ¦ Sales of the month: <sales> ¦ Different category co
 
 ### Advanced
 Implement a feature where the user can add different months of pay and then method to allow them to do the following:
--> Highest payed month
--> Lowest payed month
--> Average per month
+- Highest payed month
+- Lowest payed month
+- Average per month
