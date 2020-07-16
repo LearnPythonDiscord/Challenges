@@ -2,82 +2,54 @@ import unittest
 from unittest import mock
 
 import challenges
-
-
 class T100BeginnerTests(unittest.TestCase):
-    """Tests for the beginner challenges."""
-
-    def test_101_is_even(self):
-        """Even numbers entered into the function should return `True`, else `False`."""
-        self.assertTrue(challenges.is_even(10))
-        self.assertFalse(challenges.is_even(11))
-
-    def test_102_is_prime(self):
-        """Prime numbers entered into the function should return `True`, else `False`."""
-        self.assertTrue(challenges.is_prime(7))
-        self.assertFalse(challenges.is_prime(6))
-
-    def test_102_is_mersenne(self):
-        """Mersenne primes entered into the function should return `True`, else `False`."""
-        self.assertTrue(challenges.is_mersenne(7))
-        self.assertFalse(challenges.is_mersenne(8))
-
+    """Tests for beginner challenge"""
+    def setUp(self):
+        self.store1 = challenges.Store(size=222.2,sales_month=33333.3,item_categories=3,off_license=True,item_list=['item1','item2','item3'])
+    def test_101_variables(self):
+        '''Check init is correct'''
+        self.assertEqual(self.store1.size, 222.2)
+        self.assertEqual(self.store1.item_list, ['item1','item2','item3'])
+        self.assertEqual(self.store1.off_license, True)
 
 class T200IntermediateTests(unittest.TestCase):
-    """Tests for the intermediate challenges."""
-
+    '''Test for intermediate challenges'''
     def setUp(self):
-        self.car_1 = challenges.Car(100, 4, 4, 8649542, "Nissa")
-        self.car_2 = challenges.Car(200, 4, 6, 2394583, "Toyota")
+        self.store1 = challenges.Store(222.2,33333.3,3,True,['item1','item2','item3'])
+        self.store2 = challenges.Store(232323.3232,32323.3,5,False,['choco','beer','crisps'])
+    
+    def test_201_store_str(self):
+        '''Check the store object prints correctly'''
+        expected = 'Store size: 232323.3232 ¦ Sales of the month: 32323.3 ¦ Different category count: 5 ¦ Off license: False'
+        self.assertEqual(repr(self.store2),expected)
 
-    def test_201_car_attributes(self):
-        """A car's attributes are set on the instance."""
-        self.assertEqual(self.car_1.weight, 100)
-        self.assertEqual(self.car_2.weight, 200)
+    def test_202_update_sales(self):
+        '''Check the update sales method'''
+        self.store1.update_monthly(123.4)
+        self.assertEqual(self.store1.sales_month, 123.4)
 
-        self.assertEqual(self.car_1.wheels, self.car_2.wheels)
-
-    def test_202_car_str(self):
-        """Printing a car should return Car weight : <weight> ¦ Car wheels : <wheels> ¦ Passengers : <passengers> ¦ Model Number : <model_number>."""
-        expected_str = f"Car weight: {self.car_1.weight} | Car wheels: {self.car_1.wheels} | Passengers: {self.car_1.passengers} | Model number: {self.car_1.model_number}"
-        self.assertEqual(repr(self.car_1), expected_str)
-
-
-class T300ProficientTests(unittest.TestCase):
-    """Tests for the proficient challenges."""
-
+    def test_203_update_items(self):
+        '''Check the update items method'''
+        self.store1.add_item('wine')
+        self.assertEqual(self.store1.item_list,['choco','beer','crisps','wine'])
+    
+class T300AdvancedTests(unittest.TestCase):
+    '''Check for advanced tests'''
     def setUp(self):
-        self.tree_1 = challenges.TreeNode(1, challenges.TreeNode(2), challenges.TreeNode(3))
-        self.tree_2 = challenges.TreeNode(1, challenges.TreeNode(2), challenges.TreeNode(3))
-        self.tree_3 = challenges.TreeNode(1, challenges.TreeNode(3), challenges.TreeNode(4))
-        self.tree_4 = challenges.TreeNode(1, challenges.TreeNode(5), challenges.TreeNode(6))
+        self.store1 = challenges.Store(222.2,33333.3,3,True,['item1','item2','item3'])
+        self.store1.update_monthly(900000.0)
+        self.store1.update_monthly(1.0)
+        self.store1.update_monthly(3298.0)
+        self.store1.update_monthly(3.0)
+    def test_301_get_max(self):
+        '''Check the max_sales method'''
+        self.assertEqual(self.store1.max_sales(),900000.0)
+    
+    def test_302_get_min(self):
+        '''Check the min_sales method'''
+        self.assertEqual(self.store1.min_sales(), 1.0)
+    
+    def test_303_get_avg(self):
+        '''Check the avg_sales method'''
+        self.assertEqual(self.store1.avg_sales(), 225825.5)
 
-    def test_301_tree_node(self):
-        """`class TreeNode` should be able to take further nodes as well as the `data` attribute."""
-        self.assertEqual(self.tree_1.data, 1)
-        self.assertEqual(self.tree_1.left.data, 2)
-        self.assertEqual(self.tree_1.right.data, 3)
-
-    def test_302_check_tree(self):
-        """Check if two trees contain the same data."""
-        self.assertTrue(challenges.check_trees(self.tree_1, self.tree_2))
-        self.assertFalse(challenges.check_trees(self.tree_1, self.tree_3))
-        self.assertFalse(challenges.check_trees(self.tree_1, self.tree_4))
-        self.assertFalse(challenges.check_trees(self.tree_3, self.tree_4))
-
-    def test_303_invert_tree(self):
-        """Make it possible to invert a tree."""
-        res = challenges.invert_tree(self.tree_1)
-        self.assertEqual(res.left.data, 3)
-        self.assertEqual(res.right.data, 2)
-
-
-class T400AdvancedTests(unittest.TestCase):
-    """Tests for the advanced challenges."""
-    def test_401_correct_answer(self):
-        """
-        Testing your code with the numbers : 50 , 200, 123
-        """
-        self.assertEqual(challenges.solution(50),3657)
-        self.assertEqual(challenges.solution(200),487067745)
-        self.assertEqual(challenges.solution(123),2757825)

@@ -12,7 +12,7 @@ import types
 import typing
 import unittest
 
-TITLE = "2020 06 07 Challenge Test Results"
+TITLE = "2020 16 07 Challenge Test Results"
 CONSOLE_WIDTH = 100
 
 
