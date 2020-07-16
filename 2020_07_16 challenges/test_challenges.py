@@ -5,7 +5,7 @@ import challenges
 class T100BeginnerTests(unittest.TestCase):
     """Tests for beginner challenge"""
     def setUp(self):
-        self.store1 = challenges.Store(size=222.2,sales_month=33333.3,item_categories=3,off_license=True,item_list=['item1','item2','item3'])
+        self.store1 = challenges.Store(222.2,33333.3,3,True,['item1','item2','item3'])
     def test_101_variables(self):
         '''Check init is correct'''
         self.assertEqual(self.store1.size, 222.2)
